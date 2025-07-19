@@ -6,12 +6,14 @@ void main() {
     WINDOW* win = initscr();
     keypad(win, true);
     nodelay(win, true);
+    noecho();
     int posX = 0;
     int posY = 0;
     int foodX = rand() % 20 ;
     int foodY = rand() % 20 ;
     int dirX = 1;
     int dirY = 0;
+    int score = 0;
     while (true) {
         int pressed = wgetch(win);
         if (pressed == KEY_LEFT || pressed == 'A' || pressed == 'a')  {
@@ -35,12 +37,14 @@ void main() {
         erase();
         mvaddstr(posY, posX, "*");
         mvaddstr(foodY, foodX, "@");
-        if (foodX == posX && foodX == posY) {
+        mvprintw(0, 0, "Score: %d", score); // Display score at top-left
+        if (foodX == posX && foodY == posY) {
+            score++;
             foodX = rand() % 20;
             foodY = rand() % 20;
         }
+        refresh();
         usleep(100000);
     }
     endwin();
-
 }
