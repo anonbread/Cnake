@@ -14,19 +14,19 @@ void main() {
     int dirY = 0;
     while (true) {
         int pressed = wgetch(win);
-        if (pressed == KEY_LEFT) {
+        if (pressed == KEY_LEFT || pressed == 'A' || pressed == 'a')  {
             dirX = -1;
             dirY = 0;
         }
-        if (pressed == KEY_RIGHT) {
+        if (pressed == KEY_RIGHT || pressed == 'D' || pressed == 'd' ) {
             dirX = 1;
             dirY = 0;
         }
-        if (pressed == KEY_UP) {
+        if (pressed == KEY_UP || pressed == 'W' || pressed == 'w') {
             dirX = 0;
             dirY = -1;
         }
-        if (pressed == KEY_DOWN) {
+        if (pressed == KEY_DOWN || pressed == 'S' || pressed == 's' ) {
             dirX = 0;
             dirY = 1;
         }
